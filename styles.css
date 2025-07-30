@@ -1,0 +1,257 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #181818;
+    color: #fff;
+}
+
+.player-container {
+    display: flex;
+    height: 100vh;
+}
+
+.player-left {
+    flex: 2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls button {
+    background-color: #282828;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-right: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.controls button:hover {
+    background-color: #3d3d3d;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+.now-playing {
+    margin-top: auto;
+}
+
+.playlist-section {
+    flex: 1;
+    background-color: #121212;
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 1px solid #333;
+}
+
+#playlist {
+    list-style: none;
+    padding: 0;
+}
+
+#playlist li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding: 10px;
+    background-color: #282828;
+    border-radius: 6px;
+    gap: 10px;
+}
+
+#playlist li span {
+    flex: 1;
+    cursor: pointer;
+}
+
+/* #playlist li span {
+    flex: 1 1 auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    font-size: 14px;
+} */
+
+
+#playlist li button {
+    margin-left: 5px;
+    background-color: #444;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+#playlist li button:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+
+.playlist-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.playlist-controls button,
+.upload-label {
+    color: white;
+    padding: 10px 14px;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    flex: 1;
+    text-align: center;
+}
+
+.upload-label {
+    background-color: #bb86fc;
+    color: white;
+}
+
+.upload-label:hover {
+    background-color: #9e6af1;
+}
+
+.clear-button {
+    background-color: #e53935;
+    color: white;
+}
+
+.clear-button:hover {
+    background-color: #b84c5e;
+}
+
+.upload-label input {
+    display: none;
+}
+
+.cover-art-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    height: 250px;
+}
+
+#cover-art {
+    width: 100%;
+    max-width: 250px;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+/* .song-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  } */
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.progress-container span {
+    width: 40px;
+    text-align: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.progress-container input[type="range"] {
+    flex: 1;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.volume-control label {
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+
+@media (max-width: 768px) {
+    .player-container {
+        flex-direction: column;
+    }
+
+    .playlist-section {
+        border-left: none;
+        border-top: 1px solid #333;
+        height: auto;
+        max-height: none;
+        overflow-y: visible;
+        padding: 16px 0;
+    }
+
+    .now-playing {
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    .now-playing-label {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    #current-song {
+        font-size: 1.1em;
+    }
+}
+
+.back-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #bb86fc;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: none;
+    /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+.back-to-top-button:hover {
+    background-color: #9c6bdb;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="player-container">
+        <div class="player-left">
+            <h1>My Music Player</h1>
+
+            <div class="cover-art-container">
+                <img id="cover-art" src="/assets/img/default-cover.png" alt="Song Artwork" />
+            </div>
+
+            <div id="now-playing">
+                <div id="current-song">Nothing Playing</div>
+                <div id="current-artist">-</div> <!-- This line shows artist -->
+            </div>
+
+            <!-- <div class="now-playing">
+                <div class="now-playing-label">Now Playing:</div>
+                <div id="current-song">No song selected</div>
+            </div> -->
+
+            <div class="controls">
+                <button id="prev">⏮️</button>
+                <button id="play-pause">▶️</button>
+                <button id="next">⏭️</button>
+                <button id="loopBtn" title="Loop Off">🔁</button>
+                <button id="shuffle">🔀</button>
+            </div>
+
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress" value="0" min="0" max="100" />
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="volume-control">
+                <label for="volume">Volume</label>
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
+            </div>
+
+        </div>
+
+        <div class="playlist-section">
+            <h2>Playlist</h2>
+            <div class="playlist-controls">
+                <label class="upload-label">Add Songs 🎵
+                    <input type="file" id="file-input" multiple accept="audio/*" />
+                </label>
+                <button id="clear-songs" class="clear-button">Clear Songs 🗑️</button>
+            </div>
+            <ul id="playlist"></ul>
+        </div>
+    </div>
+
+    <audio id="audio"></audio>
+    <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+    <script src="script.js" defer></script>
+
+    <!-- Floating button -->
+    <button id="backToTopBtn" class="back-to-top-button" title="Back to top">↑</button>
+</body>
+
+</html>
