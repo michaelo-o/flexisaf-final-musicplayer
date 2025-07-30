@@ -124,7 +124,7 @@ document.getElementById("clear-songs").addEventListener("click", () => {
     audio.pause();
     audio.src = "";
     progress.value = 0;
-    progress.max = 1;
+    progress.max = 100;
     currentTimeEl.textContent = "0:00";
     durationEl.textContent = "0:00";
     playlistEl.innerHTML = "";
@@ -149,14 +149,23 @@ function updatePlaylist() {
         titleWrapper.style.flex = "1";
         titleWrapper.style.minWidth = "0";
 
-        const span = document.createElement("span");
-        span.textContent = track.title;
-        span.style.wordWrap = "break-word";
-        span.style.wordBreak = "break-word";
-        span.style.whiteSpace = "normal";
-        span.onclick = () => playTrack(index);
+        const titleEl = document.createElement("span");
+        titleEl.textContent = track.title;
+        titleEl.style.wordWrap = "break-word";
+        titleEl.style.wordBreak = "break-word";
+        titleEl.style.whiteSpace = "normal";
+        titleEl.onclick = () => playTrack(index);
 
-        titleWrapper.appendChild(span);
+        // Artist element (below title)
+        const artistEl = document.createElement("div");
+        artistEl.textContent = track.artist || "-";
+        artistEl.style.fontStyle = "italic";
+        artistEl.style.fontSize = "0.9em";
+        artistEl.style.opacity = "0.8";
+        artistEl.style.marginTop = "2px";
+
+        titleWrapper.appendChild(titleEl);
+        titleWrapper.appendChild(artistEl);
 
         // Button wrapper
         const buttonGroup = document.createElement("div");
@@ -247,6 +256,7 @@ function playTrack(index) {
 
                 document.getElementById("current-song").textContent = "Now Playing: " + title;
                 document.getElementById("current-artist").textContent = artist;
+                document.getElementById("current-artist").style.fontStyle = "italic";
             },
             onError: () => {
                 document.getElementById("current-song").textContent = "Now Playing: " + (track.title || "Unknown Title");
