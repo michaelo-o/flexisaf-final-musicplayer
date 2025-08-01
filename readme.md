@@ -1,4 +1,4 @@
-# Modern Music Player 🎵 by Michael Okwuosah
+# Browser Music Player 🎵 by Michael Okwuosah
 
 A responsive web-based music player that lets you play audio files directly from your device. Supports metadata reading, album art display, and real-time progress tracking.
 
